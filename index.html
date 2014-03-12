@@ -6,55 +6,105 @@
     <title>BioBrk.com</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+
+    <link href="timerstyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
+    <!--<script type="text/javascript" src="timerBehaviour.js"></script>-->
+    <script type="text/javascript">
+      $(document).ready(function(e)
+      {
+        initTimer();
+
+        // Attach click behaviour to start / stop button
+        $("#startStopButton").click(function() {
+          if ($("#startStopButton").html() == "Start")
+          {
+            timer.start(one_sec_countdown_interval);
+            $("#startStopButton").html("Stop");
+          }
+          else
+          {
+            timer.stop();
+            $("#startStopButton").html("Start");
+          }
+          $("#startStopButton").toggleClass("alert", "success")
+        });
+
+        // Attach click behaviour to reset button
+        $("#reset").click(function() {
+          timer.reset(default_time);
+        });
+
+        $("#addButton").click(function() {
+          timer.addTime(five_mins);
+        });
+
+        $("#subtractButton").click(function() {
+          timer.subtractTime(five_mins);
+        });
+      });
+    </script>
 </head>
 <body>
   <div class="row">
     <div class="large-6 medium-6 small-12 small-centered columns">
       <div class="panel">
 
-        <!-- Hello -->
+        <!-- BioBrk Title -->
         <div class="row">
           <div class="small-12 columns text-center">
-              <h2>Hello BioBrk World</h2>
+            <h1 id="title">BioBrk</h1>
+            <hr>
           </div>
         </div>
+
         <!-- Counter -->
         <div class="row">
           <div class="small-12 columns text-center">
-              <img src="img/Time-Counter_cropped_small.jpg" alt="counter img" width="500" height="179">
+            <span class="timer">
+              <span class="minute" id="minute">00</span>:<span class="second" id="second">00</span>
+            </span>
+            <hr>
           </div>
         </div>
-        <br>
-        <!-- Reset/Start Buttons -->
+
+        <!-- AddTime/SubtractTime -->
         <div class="row">
           <div class="small-12 columns text-center">
-
-              <a href="" class="small secondary button">Reset</a>
-              <a href="" class="large success button">Start</a>
+            <button class="button small secondary" id="addButton">+</button>
+            <button class="button small secondary" id="subtractButton">-</button>
           </div>
         </div>
+
+        <!-- Start/Stop & Reset Buttons -->
+        <div class="row">
+          <div class="small-12 columns text-center">
+            <button id="reset" class="button small secondary">Reset</button>
+            <button id="startStopButton" class="button large success">Start</button>
+          </div>
+        </div>
+
         <!-- QR image -->
         <div class="row">
           <div class="small-12 columns text-center">
-
-              <img src="img/QR-Code_small.png" alt="qr-code img" width="100" height="100">
-
+            <img src="img/QR-Code_small.png" alt="qr-code img" width="100" height="100">
           </div>
         </div>
         <br>
+
         <!-- Link -->
         <div class="row">
           <div class="small-12 columns text-center">
-
               <a href="">biam.ca/3773636</a>
           </div>
         </div>
         <br>
+
         <!-- Join another timer button -->
         <div class="row">
-
           <div class="small-9 columns">
-                <input type="text" placeholder="Join another timer" />
+            <input type="text" placeholder="Join another timer" />
           </div>
           <div class="small-3 columns">
             <a href="" class="tiny secondary button">Go</a>
@@ -64,6 +114,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
