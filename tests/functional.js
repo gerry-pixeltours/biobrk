@@ -27,7 +27,7 @@ describe('express rest api server', function(){
       });
   });
 
-  it('body returns a timer object', function(done){
+  it('body returns a timer with status', function(done){
     superagent.get('http://localhost:3000/timer/0001')
       .end(function(error, result){
         expect(typeof result.body.timer.state).to.eql('stopped');
