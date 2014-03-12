@@ -10,7 +10,9 @@ app.get("/", function(req, res) {
 });
 
 app.get("/timer/0001", function(req, res) {
-    res.send("Hello Gerry!");
+    res.send({"timer": {}});
 });
+
+
 
 app.listen(3000);
