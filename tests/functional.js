@@ -27,10 +27,18 @@ describe('express rest api server', function(){
       });
   });
 
-  it('body returns a timer with an initial state of stopped', function(done){
+  it('body returns a timer object with an initial "state" of stopped', function(done){
     superagent.get('http://localhost:3000/timer/0001')
       .end(function(error, result){
         expect(result.body.timer.state).to.eql('stopped');
+        done();
+      });
+  });
+
+  it('body returns a timer object with an a "currentTime" that is a string', function(done){
+    superagent.get('http://localhost:3000/timer/0001')
+      .end(function(error, result){
+        expect(typeof result.body.timer.currentTime).to.eql('string');
         done();
       });
   });
