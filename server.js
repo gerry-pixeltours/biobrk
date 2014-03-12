@@ -12,7 +12,8 @@ app.get("/", function(req, res) {
 app.get("/timer/0001", function(req, res) {
     var returner = {
         "timer": {
-            "state": "stopped"
+            "state": "stopped",
+            "currentTime": ""
         }
     };
     res.send(returner);
