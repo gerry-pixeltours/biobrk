@@ -9,4 +9,8 @@ app.get("/", function(req, res) {
   res.send("Welcome to BioBrk!");
 });
 
+app.get("/timer/0001", function(req, res) {
+    res.send("Hello Gerry!");
+});
+
 app.listen(3000);
