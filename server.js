@@ -10,7 +10,12 @@ app.get("/", function(req, res) {
 });
 
 app.get("/timer/0001", function(req, res) {
-    res.send({"timer": {}});
+    var returner = {
+        "timer": {
+            "state": "stopped"
+        }
+    };
+    res.send(returner);
 });
 
 
