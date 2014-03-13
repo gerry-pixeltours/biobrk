@@ -41,7 +41,7 @@ describe('BioBreak Restful Server', function(){
         });
     });
 
-    it('returns a timer object with an a "currentTime" that is a string', function(done){
+    it('returns a timer object with an a "currentTime" attribute that is a string', function(done){
       superagent.get(timerRoute)
         .end(function(error, result){
           expect(typeof result.body.timer.currentTime).to.eql('string');
@@ -49,7 +49,7 @@ describe('BioBreak Restful Server', function(){
         });
     });
 
-    it('returns a timer object with a "minutes" that is an integer', function(done){
+    it('returns a timer object with a "minutes" attribute that is an integer', function(done){
       superagent.get(timerRoute)
         .end(function(error, result){
           expect(typeof result.body.timer.minutes).to.eql('number');
