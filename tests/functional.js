@@ -4,6 +4,9 @@ var superagent = require('superagent'),
 
 describe('BioBreak Restful Server', function(){
 
+  var timerRoute = "http://localhost:3000/timer/0001",
+      timerRouteStart = timerRoute + "/start";
+
   describe('the route "/"', function(){
     it('is a valid route', function(done){
       superagent.get('http://localhost:3000/')
@@ -15,7 +18,6 @@ describe('BioBreak Restful Server', function(){
   });
 
   describe('the timer route', function(){
-    var timerRoute = "http://localhost:3000/timer/0001";
 
     it('is a valid route', function(done){
       superagent.get(timerRoute)
@@ -63,6 +65,16 @@ describe('BioBreak Restful Server', function(){
           expect(typeof result.body.timer.seconds).to.eql('number');
           done();
         });
+    });
+  });
+
+  describe('the timer state changes', function() {
+    it('accepts "start"', function(done) {
+      superagent.post(timerRouteStart)
+      .end(function(error, result) {
+        expect(result.status).to.eql(SUCCESS);
+        done();
+      });
     });
   });
 
