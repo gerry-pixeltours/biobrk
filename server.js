@@ -14,7 +14,8 @@ app.get("/timer/0001", function(req, res) {
         "timer": {
             "state": "stopped",
             "currentTime": "",
-            "minutes": 0
+            "minutes": 0,
+            "seconds": 0
         }
     };
     res.send(returner);
