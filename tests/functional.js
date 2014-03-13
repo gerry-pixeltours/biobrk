@@ -57,6 +57,13 @@ describe('BioBreak Restful Server', function(){
         });
     });
 
+    it('returns a timer object with a "seconds" attribute that is an integer', function(done){
+      superagent.get(timerRoute)
+        .end(function(error, result){
+          expect(typeof result.body.timer.seconds).to.eql('number');
+          done();
+        });
+    });
   });
 
 });
