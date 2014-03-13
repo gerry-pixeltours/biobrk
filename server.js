@@ -13,7 +13,8 @@ app.get("/timer/0001", function(req, res) {
     var returner = {
         "timer": {
             "state": "stopped",
-            "currentTime": ""
+            "currentTime": "",
+            "minutes": 0
         }
     };
     res.send(returner);
