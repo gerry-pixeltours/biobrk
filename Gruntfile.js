@@ -20,5 +20,5 @@ module.exports = function(grunt){
     alias('test', 'jshint mochaTest:functional');
     alias('dev', 'concurrent:dev');
 
-    alias('default', 'test');
+    alias('default', 'dev');
 };
