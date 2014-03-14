@@ -72,7 +72,7 @@ describe('BioBreak Restful Server', function(){
 
   describe('the timer state changes', function() {
     it('accepts "start"', function(done) {
-      superagent.post('http://localhost:3000/timer/')
+      superagent.post('http://localhost:3000/timer')
       .send({
           'action': 'start'
       })
@@ -81,6 +81,19 @@ describe('BioBreak Restful Server', function(){
         done();
       });
     });
+  });
+
+  describe('the timer state changes', function() {
+      it('accepts "start"', function(done) {
+          superagent.post('http://localhost:3000/timer')
+              .send({
+                  'action': 'start'
+              })
+              .end(function(error, result) {
+                  expect(typeof result.id).to.eql('string');
+                  done();
+              });
+      });
   });
 
 });
