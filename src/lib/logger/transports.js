@@ -6,6 +6,19 @@ var pushover = require('winston-pushover').Pushover;
 var papertrail = require('winston-papertrail').Papertrail;
 var stdout = winston.transports.Console;
 
+function timestamps(){
+    return moment().format();
+}
+
+function add(transport, enabled, options) {
+    var on = conf(enabled);
+    if (on) { winston.add(transport, options); }
+
+    var name = enabled.split('_')[0].toLowerCase();
+
+    console.log(timestamps(), '-', name, 'transport', on ? 'enabled' : 'off');
+}
+
 winston.remove(stdout);
 
 add(stdout, 'CONSOLE_ENABLED', {
@@ -25,16 +38,3 @@ add(papertrail, 'PAPERTRAIL_ENABLED', {
     port: conf('PAPERTRAIL_PORT'),
     level: conf('PAPERTRAIL_LEVEL')
 });
-
-function add (transport, enabled, options) {
-    var on = conf(enabled);
-    if (on) { winston.add(transport, options); }
-
-    var name = enabled.split('_')[0].toLowerCase();
-
-    console.log(timestamps(), '-', name, 'transport', on ? 'enabled' : 'off');
-}
-
-function timestamps(){
-    return moment().format();
-}

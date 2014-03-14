@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var superagent = require('superagent'),
     expect = require('expect.js'),
@@ -6,10 +6,10 @@ var superagent = require('superagent'),
 
 describe('BioBreak Restful Server', function(){
 
-  var timerRoute = "http://localhost:3000/timer/0001",
-      timerRouteStart = timerRoute + "/start";
+  var timerRoute = 'http://localhost:3000/timer/0001',
+      timerRouteStart = timerRoute + '/start';
 
-  describe('the route "/"', function(){
+  describe('the route '/'', function(){
     it('is a valid route', function(done){
       superagent.get('http://localhost:3000/')
         .end(function(error, result){
@@ -72,9 +72,9 @@ describe('BioBreak Restful Server', function(){
 
   describe('the timer state changes', function() {
     it('accepts "start"', function(done) {
-      superagent.post("http://localhost:3000/timer/")
+      superagent.post('http://localhost:3000/timer/')
       .send({
-          "action": "start"
+          'action': 'start'
       })
       .end(function(error, result) {
         expect(result.status).to.eql(SUCCESS);

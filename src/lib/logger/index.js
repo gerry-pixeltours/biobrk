@@ -2,7 +2,14 @@
 
 var _ = require('lodash');
 var winston = require('winston');
-var api = module.exports = { stream: stream };
+var api = module.exports = { stream: function(level) {
+    return {
+        write: function(data){
+            var message = data.replace(/\n+$/, ''); // remove trailing breaks
+            api[level](message);
+        }
+    };
+}};
 
 var levels = ['debug', 'info', 'warn', 'error'];
 
@@ -11,12 +18,3 @@ _.each(levels, function(level){
 });
 
 require('./transports.js');
-
-function stream (level) {
-    return {
-        write: function(data){
-            var message = data.replace(/\n+$/, ''); // remove trailing breaks
-            api[level](message);
-        }
-    };
-}

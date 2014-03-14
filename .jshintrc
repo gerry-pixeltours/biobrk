@@ -1,0 +1,19 @@
+{
+  "globalstrict": true,
+  "latedef": true,
+  "newcap": true,
+  "nonew": true,
+  "quotmark": true,
+  "trailing": true,
+  "node": true,
+  "globals": {
+    "require": false,
+    "process": false,
+    "conf": false,
+    "logger": false,
+    "console": false,
+    "module":  false,
+    "describe": false,
+    "it":       false
+  }
+}

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var express = require('express'),
     mongoskin = require('mongoskin'),
@@ -15,21 +15,21 @@ logger.info('environment: %s, distribution: %s, build: %s',
 
 app.use(express.bodyParser());
 
-app.get("/", function(req, res) {
-  res.send("Welcome to BioBrk!");
+app.get('/', function(req, res) {
+  res.send('Welcome to BioBrk!');
 });
 
-app.post("/timer", function(req, res) {
+app.post('/timer', function(req, res) {
   res.send([]);
 });
 
-app.get("/timer/0001", function(req, res) {
+app.get('/timer/0001', function(req, res) {
     var returner = {
-        "timer": {
-            "state": "stopped",
-            "currentTime": "",
-            "minutes": 0,
-            "seconds": 0
+        'timer': {
+            'state': 'stopped',
+            'currentTime': '',
+            'minutes': 0,
+            'seconds': 0
         }
     };
     res.send(returner);

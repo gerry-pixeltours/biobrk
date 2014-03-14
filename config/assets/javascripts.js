@@ -8,7 +8,7 @@ module.exports = {
     lint: function(base, glob){
         return {
             options: {
-                jshintrc: path.join(base, '.jshintrc')
+                jshintrc: '.jshintrc'
             },
             files: {
                 src: glob

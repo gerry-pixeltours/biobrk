@@ -23,8 +23,14 @@ module.exports = {
             src: ['tests/server/functional/**/*.js']
         }
     },
+    notify_hooks: {
+      options: {
+        enabled: true,
+        max_jshint_notifications: 5
+      }
+    },
     watch: {
-        test: { tasks: ['test'], files: ['src/**/*.js', 'app.js', 'tests/**/*.js'] },
+        test: { tasks: ['test'], files: ['.jshintrc', 'src/**/*.js', 'app.js', 'tests/**/*.js'] },
     },
     nodemon: {
         dev: {
