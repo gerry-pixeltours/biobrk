@@ -16,7 +16,8 @@ module.exports = {
     },
     mochaTest: {
         options: {
-            reporter: 'spec'
+            reporter: 'spec',
+            growl: true
         },
         functional: {
             src: ['tests/server/functional/**/*.js']
